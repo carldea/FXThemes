@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 public class WindowUtils {
     public static WinDef.HWND getNativeHandleOfStage(Window stage) {
         try {
-            final Method getPeer = Window.class.getDeclaredMethod("getPeer", null);
+            final Method getPeer = Window.class.getDeclaredMethod("getPeer");
             getPeer.setAccessible(true);
             final Object tkStage = getPeer.invoke(stage);
             final Method getRawHandle = tkStage.getClass().getMethod("getRawHandle");

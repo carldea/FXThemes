@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class DarkThemeSample extends Application {
 
@@ -23,10 +24,15 @@ public class DarkThemeSample extends Application {
     @Override
     public void start(Stage primaryStage) {
         ThemeWindowManager themeWindowManager = ThemeWindowManagerFactory.create();
+        System.out.println("app " + primaryStage.getClass().getName());
+
+        primaryStage.initStyle(StageStyle.UNIFIED);
 
         // Create a simple JavaFX window
         StackPane root = new StackPane();
+        //root.setStyle("-fx-background-color: #00000050;");
         root.getStyleClass().add(TransitStyleClass.BACKGROUND);
+
         Button button = new Button(darkModeOnLabel);
         root.getChildren().add(button);
 
